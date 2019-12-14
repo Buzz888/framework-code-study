@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app"></div>
+	</body>
+	<script src="./createElm.js"></script>
+	<script src="./render.js"></script>
+	<script type="module">
+		// https://www.babeljs.cn/repl
+		// <div class="hello" type="hello" id="fwaf" >
+		//   hello react
+		//   <h1 style="color:red">hello</h1>
+		// <a href="https://github.com/Buzz888/buzz888.github.io"></a>
+		// </div>
+    let elm = createElement(
+	'div', {className: "hello",ref:"div",style:{fontSize:'1.8rem'} ,key:"hello",id: "fwaf"}, 
+    "hello react",
+    createElement('h1', { style:{color:'skyblue'}}, "hello"),
+    createElement('a', {href: "https://github.com/Buzz888/buzz888.github.io"},'React')
+     )
+    render(elm,document.querySelector('#app'),()=>{console.log('首次渲染完成')})
+	querySelector('#app')
+	</script>
+</html>

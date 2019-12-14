@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app"></div>
+	</body>
+	<script src="./createElm.js"></script>
+	<script src="./render.js"></script>
+	<script>
+		//babel查看React转换规范
+		// https://www.babeljs.cn/repl
+	//创建第一个createElement
+    let elm = createElement(
+	'div', {'@click':add() ,className: "hello",style:{color:'red'} ,key:"hello",id: "id"}, 
+    "hello react",
+    createElement('h1', { style:{color:'skyblue'}}, "hello1"),
+	createElement('a', {src:"#"},'React1')
+	)
+    // console.log(elm)
+	render(elm,document.querySelector('#app'),()=>{console.log('首次渲染完成')})
+	function add(ref){
+		return function(){alert ('hello')}}
+	//=>再次渲染
+	let elm2 = createElement(
+	'div', {className: "hello",ref:"div",style:{color:'pink'} ,key:"hello",id: "id"}, 
+    "hello vue",
+    createElement('h1', { style:{color:'skyblue'}}, "hello2"),
+	createElement('h2', {},'React2'),
+	createElement('h3', {style:{color:'yellow'}},'React2'),
+	createElement('h4', {style:{color:'blue'}},'React2')
+	)
+	setTimeout(()=>{
+		render(elm2,document.querySelector('#app'),()=>{console.log('再次渲染完成')})
+	},2000)
+	
+	</script>
+</html>
